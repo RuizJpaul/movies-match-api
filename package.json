@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "movie.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "search": "node movie.js",
+    "dev" : "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/RuizJpaul/movies-match-api/issues"
   },
-  "homepage": "https://github.com/RuizJpaul/movies-match-api#readme"
+  "homepage": "https://github.com/RuizJpaul/movies-match-api#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
 }
