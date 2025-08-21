@@ -1,77 +1,19 @@
 import express from "express";
 
 import { api } from "./routes/routesMovies.routes.js";
+import { logRequest } from "./middlewares/logger.js";
 
 const app = express();
 
 const port = 2000;
+
+app.use(logRequest);
 
 app.use(api);
 
 app.listen(port, () => {
     console.log("App is running in port "+port)
 })
-
-
-
-// app.get("/peliculas/rating-low", (req, res) => {
-//     const filePath = path.join(process.cwd(), "./data/movies.csv");
-//     fs.readFile(filePath, "utf8", (err, data) => {
-//         if (err) {
-//             return res.status(500).json({ error: "No se pudo leer el archivo" });
-//         }   
-
-//         const newMovies = parseCsvToJson(data);
-//         const ratingLowMovies = newMovies.filter((movie) => Number(movie.rating) <= 5)
-//         res.json(ratingLowMovies);
-//     });
-// })
-
-// app.get("/peliculas/:id", (req, res) => {
-//     try{
-//         const id = req.params.id;;
-//         console.log(id);
-//         const filePath = path.join(process.cwd(), "./data/movies.csv");
-//         fs.readFile(filePath, "utf8", (err, data) => {
-//             if (err) {
-//                 return res.status(500).json({ error: "No se pudo leer el archivo" });
-//             }   
-
-//             const newMovies = parseCsvToJson(data);
-//             const catchedMovie = newMovies.find((movie) => movie.id==id)
-//             if(!catchedMovie){
-//                 return res.json({
-//                     msg: "No se encontro la pelicula"
-//                 })
-//             }
-//             res.json(catchedMovie);
-//         });
-
-//     } catch(error){
-//         res.status(500).json({
-//             error: "Hubo un error inesperado en el servidor"
-//         })
-//     }
-// })
-
-// app.get("/peliculas/year/:year", (req, res) => {
-//     const year = req.params.year;
-//     const filePath = path.join(process.cwd(), "./data/movies.csv");
-//     fs.readFile(filePath, "utf8", (err, data) => {
-//         if (err) {
-//             return res.status(500).json({ error: "No se pudo leer el archivo" });
-//         }   
-
-//         const newMovies = parseCsvToJson(data);
-//         const catchedMovies = newMovies.filter((movie) => movie.year==year)
-//         if(!catchedMovies){
-//             return res.json({
-//                 msg: "No se encontro ninguna pelicula con esa fecha"
-//             })
-//         }
-//         res.json(catchedMovies);
-//     });
-// })
 
 // app.post("/crear-pelicula", (req, res) => {
 //     try{
