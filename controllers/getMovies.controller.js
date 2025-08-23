@@ -4,6 +4,10 @@ import { MoviesCount } from "../models/moviesCount.model.js";
 import { MoviesRatingTop } from "../models/moviesRatingTop.model.js";
 import { MoviesRatingLow } from "../models/moviesRatingLow.model.js";
 import { MovieByYear } from "../models/movieByYear.model.js";
+import { MoviesByGenre } from "../models/moviesByGenre.model.js";
+import { MoviesGenreList } from "../models/moviesGenreList.model.js";
+import { MoviesDirectorList } from "../models/moviesDirectorList.model.js";
+import { MoviesByRange } from "../models/moviesByRange.model.js";
 
 export function getAllMovies(req, res) {
     const allMovies = movies();
@@ -37,3 +41,22 @@ export function getMovieByYear(req, res) {
     res.json(movieByYear);
 }
 
+export function getMoviesByGenre(req, res) {
+    const moviesByGenre = MoviesByGenre(req);
+    res.json(moviesByGenre);
+}
+
+export function getMoviesGenreList(req, res) {
+    const moviesGenreList = MoviesGenreList();
+    res.json(moviesGenreList);
+}
+
+export function getMoviesDirectorList(req, res) {
+    const moviesDirectorList = MoviesDirectorList();
+    res.json(moviesDirectorList);
+}
+
+export function getMoviesByRange(req, res) {
+    const moviesByRange = MoviesByRange(req);
+    res.json(moviesByRange);
+}
