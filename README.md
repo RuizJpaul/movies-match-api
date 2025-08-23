@@ -46,7 +46,7 @@ para encontrar fácilmente películas de una época determinada.
 
 ### Criterios de Aceptación
 
-- Endpoint: GET /movies?fromYear=<año>&toYear=<año>
+- Endpoint: GET /range?fromYear=<año>&toYear=<año>
 
 - Si se envía solo fromYear, debe devolver todas las películas desde ese año en adelante.
 

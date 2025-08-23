@@ -5,7 +5,6 @@ import { parseCsvToJson } from "../app.js";
 export function MovieById(req) {
     const filePath = path.join(process.cwd(), "./data/movies.csv");
     const id = req.params.id;
-    const msg = "";
     try {
         const data = fs.readFileSync(filePath, "utf8");
         const movies = parseCsvToJson(data);

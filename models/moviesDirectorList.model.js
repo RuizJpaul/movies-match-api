@@ -8,9 +8,9 @@ export function MoviesDirectorList() {
         const data = fs.readFileSync(filePath, "utf8");
         const movies = parseCsvToJson(data);
         const allDirectors = []
-        const moviesByDirector = movies.map((element) => {
+        movies.map((element) => {
             const directorList = element.director.split(" and ");
-            const newList = directorList.map((director) => {
+            directorList.map((director) => {
                 let ans = false;
                 if (allDirectors.includes(director)) {
                     ans = true;
@@ -22,7 +22,7 @@ export function MoviesDirectorList() {
             })
         });
 
-        return allDirectors.filter((director) => director!="director");
+        return allDirectors.filter((director) => director!="director").sort((a, b) => a.localeCompare(b));
     } catch (err) {
         console.error("Error reading movie data: ", err);
         return [];
