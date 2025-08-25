@@ -57,6 +57,7 @@ export function getMoviesDirectorList(req, res) {
 }
 
 export function getMoviesByRange(req, res) {
-    const moviesByRange = MoviesByRange(req);
+    const {fromYear, toYear} = req.query;
+    const moviesByRange = MoviesByRange({fromYear, toYear});
     res.json(moviesByRange);
-}
+}   

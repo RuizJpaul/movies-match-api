@@ -22,7 +22,7 @@ export function MoviesDirectorList() {
             })
         });
 
-        return allDirectors.filter((director) => director!="director").sort((a, b) => a.localeCompare(b));
+        return allDirectors.sort((a, b) => a.localeCompare(b));
     } catch (err) {
         console.error("Error reading movie data: ", err);
         return [];

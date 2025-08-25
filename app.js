@@ -117,5 +117,5 @@ export function parseCsvToJson(data) {
         })
     })
 
-    return newMovies;
+    return newMovies.filter((element) => element.id!=="id");
 }

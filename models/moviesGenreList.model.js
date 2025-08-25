@@ -22,7 +22,20 @@ export function MoviesGenreList() {
             })
         });
 
-        return allGenres.filter((genre) => genre !== "genre").sort((a, b) => a.localeCompare(b));
+        const amountGenre = allGenres.map((genre) => {
+            let lot = 0;
+            movies.map((movie) => {
+                const genreList = movie.genre.split(", ");
+                if (genreList.includes(genre)) {
+                    lot++;
+                }
+            })
+            return ({
+                Genero: genre,
+                Cantidad: lot
+            })
+        })
+        return amountGenre;
     } catch (err) {
         console.error("Error reading movie data: ", err);
         return [];

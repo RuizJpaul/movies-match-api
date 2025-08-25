@@ -6,7 +6,7 @@ export function MoviesCount() {
     const filePath = path.join(process.cwd(), "./data/movies.csv");
     try {
         const data = fs.readFileSync(filePath, "utf8");
-        return parseCsvToJson(data).length -1;
+        return parseCsvToJson(data).length;
     } catch (err) {
         console.error("Error reading movie data: ", err);
         return [];
