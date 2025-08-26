@@ -1,13 +1,14 @@
-import { MovieById } from "../models/movieById.model.js";
 import { movies } from "../models/movies.model.js";
-import { MoviesCount } from "../models/moviesCount.model.js";
-import { MoviesRatingTop } from "../models/moviesRatingTop.model.js";
-import { MoviesRatingLow } from "../models/moviesRatingLow.model.js";
-import { MovieByYear } from "../models/movieByYear.model.js";
-import { MoviesByGenre } from "../models/moviesByGenre.model.js";
-import { MoviesGenreList } from "../models/moviesGenreList.model.js";
-import { MoviesDirectorList } from "../models/moviesDirectorList.model.js";
-import { MoviesByRange } from "../models/moviesByRange.model.js";
+import { MovieById } from "../models/movies.model.js";
+import { MovieByYear } from "../models/movies.model.js";
+import { MoviesByGenre } from "../models/movies.model.js";
+import { MoviesByRange } from "../models/movies.model.js";
+import { MoviesCount } from "../models/movies.model.js";
+import { MoviesDirectorList } from "../models/movies.model.js";
+import { MoviesGenreList } from "../models/movies.model.js";
+import { MoviesRatingTop } from "../models/movies.model.js";
+import { MoviesRatingLow } from "../models/movies.model.js";
+import { MoviesPagination } from "../models/movies.model.js";
 
 export function getAllMovies(req, res) {
     const allMovies = movies();
@@ -60,4 +61,9 @@ export function getMoviesByRange(req, res) {
     const {fromYear, toYear} = req.query;
     const moviesByRange = MoviesByRange({fromYear, toYear});
     res.json(moviesByRange);
-}   
+}
+
+export function getMoviesPagination(req, res) {
+    const moviesPagination = MoviesPagination(req);
+    res.json(moviesPagination);
+}
