@@ -55,3 +55,28 @@ para encontrar fácilmente películas de una época determinada.
 - Si se envían ambos, debe devolver todas las películas entre esos dos años inclusivamente.
 
 - La respuesta debe estar en formato JSON.
+
+
+## Paginación de resultados 🟢
+
+Como usuario de la API
+
+quiero poder consultar las películas en páginas (con límite de resultados por página)
+
+para navegar fácilmente por los datos sin recibir toda la lista completa de una sola vez.
+
+### Criterios de Aceptación
+
+- El endpoint GET /movies debe aceptar los parámetros page y limit.
+
+- La respuesta debe incluir en un objeto meta la siguiente información:
+
+  - total → cantidad total de películas.
+
+  - page → número de página actual.
+
+  - pages → total de páginas calculadas.
+
+  - limit → límite de resultados por página.
+
+- La propiedad page debe contener únicamente las películas correspondientes a esa página.
